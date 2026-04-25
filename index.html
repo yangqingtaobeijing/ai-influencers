@@ -329,6 +329,7 @@
         .avatar-researcher { background: linear-gradient(135deg, #10b981, #06b6d4); }
         .avatar-entrepreneur { background: linear-gradient(135deg, #f59e0b, #ef4444); }
         .avatar-blogger { background: linear-gradient(135deg, #ec4899, #8b5cf6); }
+        .avatar-builder { background: linear-gradient(135deg, #f97316, #ea580c); }
 
         .card-info {
             flex: 1;
@@ -358,6 +359,7 @@
         .badge-researcher { background: rgba(16, 185, 129, 0.2); color: #34d399; }
         .badge-entrepreneur { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
         .badge-blogger { background: rgba(236, 72, 153, 0.2); color: #f472b6; }
+        .badge-builder { background: rgba(249, 115, 22, 0.2); color: #fb923c; }
 
         .card-title {
             font-size: 13px;
@@ -616,18 +618,18 @@
     <header>
         <div class="header-badge">2024-2025 年度整理 · 持续更新</div>
         <h1>🌐 AI 领域知名人物指南</h1>
-        <p class="subtitle">汇集全球 AI 领域最具影响力的企业家、研究者和博主，涵盖社交媒体链接、核心观点与代表作品</p>
+        <p class="subtitle">汇集全球 AI 领域最具影响力的企业家、研究者和博主，涵盖社交媒体链接、核心观点与代表作品 · 含 follow-builders 精选 33 个 AI Builder 来源</p>
         <div class="stats-row">
             <div class="stat-item">
-                <div class="stat-number" id="total-count">40+</div>
+                <div class="stat-number" id="total-count">70+</div>
                 <div class="stat-label">收录人物</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">4</div>
+                <div class="stat-number">5</div>
                 <div class="stat-label">分类维度</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">100+</div>
+                <div class="stat-number">150+</div>
                 <div class="stat-label">社交链接</div>
             </div>
         </div>
@@ -646,6 +648,7 @@
         <button class="filter-btn" data-filter="china">🇨🇳 国内领袖</button>
         <button class="filter-btn" data-filter="researcher">🔬 学术泰斗</button>
         <button class="filter-btn" data-filter="media">📰 媒体/博主</button>
+        <button class="filter-btn" data-filter="builders">🔨 AI Builders</button>
     </div>
 
     <!-- Main Content -->
@@ -704,6 +707,19 @@
             </div>
         </div>
 
+        <!-- ==================== AI Builders (Follow Builders Default Sources) ==================== -->
+        <div class="category-section" data-category="builders">
+            <div class="section-header">
+                <div class="section-icon builders" style="background: linear-gradient(135deg, #f97316, #ea580c);">🔨</div>
+                <div>
+                    <h2 class="section-title">AI Builders & 播客</h2>
+                    <p class="section-subtitle">来自 follow-builders 的 33 个精选来源：6个顶级播客 + 25位一线AI Builder + 2个官方博客 | Follow builders, not influencers</p>
+                </div>
+            </div>
+            <div class="cards-grid" id="builders-grid">
+            </div>
+        </div>
+
         <!-- No Results Message -->
         <div class="no-results hidden" id="noResults">
             <div class="no-results-icon">🔍</div>
@@ -713,8 +729,8 @@
 
     <!-- Footer -->
     <footer>
-        <p>数据整理于 2025年 · 信息来源于公开网络 · 如有错误欢迎反馈</p>
-        <p style="margin-top: 8px;">Made with ❤️ for AI Community</p>
+        <p>数据整理于 2025年 · 信息来源于公开网络 & <a href="https://github.com/zarazhangrui/follow-builders" target="_blank">follow-builders</a> · 如有错误欢迎反馈</p>
+        <p style="margin-top: 8px;">Made with ❤️ for AI Community · Follow builders, not influencers</p>
     </footer>
 
     <script>
@@ -1433,8 +1449,499 @@
                         { label: "Newsletter", url: "https://importai.com", icon: "📧", cls: "blog" }
                     ]
                 }
+            ],
+
+            // ==================== AI Builders & Podcasts (from follow-builders) ====================
+            builders: [
+                // ---- 播客 (Podcasts, 6) ----
+                {
+                    name: "Latent Space 播客",
+                    title: "AI Engineer 首选播客 | by Swyx & Alessio",
+                    role: "builder",
+                    avatar: "🎙️",
+                    tags: ["播客", "AI Engineer", "深度访谈"],
+                    viewpoint: "「The AI Engineer Podcast」——全球最受关注的 AI 工程播客之一，2025年超过1000万读者和听众。采访 Sam Altman、Andrej Karpathy、Jensen Huang 等几乎所有 AI 界重要人物。聚焦 Foundation Models、AI Engineering 和 Software 3.0。",
+                    works: [
+                        "Latent Space 每周播客节目",
+                        "AI Engineer Summit/Conference",
+                        "latent.space Substack"
+                    ],
+                    socials: [
+                        { label: "YouTube", url: "https://www.youtube.com/@LatentSpacePod", icon: "▶️", cls: "youtube" },
+                        { label: "Website", url: "https://www.latent.space", icon: "🌐", cls: "website" },
+                        { label: "Twitter/X", url: "https://x.com/LatentPost", icon: "𝕏", cls: "twitter" }
+                    ]
+                },
+                {
+                    name: "Training Data 播客",
+                    title: "AI 数据与工程实践 | by Shreya Shankar",
+                    role: "builder",
+                    avatar: "📊",
+                    tags: ["播客", "数据工程", "ML实践"],
+                    viewpoint: "专注于 AI 数据工程、机器学习基础设施和实际部署经验的播客。面向一线工程师，分享从数据处理到模型部署的全链路实战经验。",
+                    works: [
+                        "Training Data YouTube 播客系列"
+                    ],
+                    socials: [
+                        { label: "YouTube", url: "https://www.youtube.com/playlist?list=PLOhHNjZItNnMm5tdW61JpnyxeYH5NDDx8", icon: "▶️", cls: "youtube" },
+                        { label: "Twitter/X", url: "https://x.com/shreya_shankar", icon: "𝕏", cls: "twitter" }
+                    ]
+                },
+                {
+                    name: "No Priors 播客",
+                    title: "AI 投资与创业洞察 | by Sarah Guo & Elad Gil",
+                    role: "builder",
+                    avatar: "🎧",
+                    tags: ["播客", "VC投资", "AI创业"],
+                    viewpoint: "由知名 VC Sarah Guo (Conviction) 和 Elad Gil 联合主持。深入对话 AI 创业者和技术领袖，探讨 AI 行业趋势、投资逻辑和技术突破。是理解 AI 商业化路径的重要窗口。",
+                    works: [
+                        "No Priors 每周播客节目"
+                    ],
+                    socials: [
+                        { label: "YouTube", url: "https://www.youtube.com/@NoPriorsPodcast", icon: "▶️", cls: "youtube" },
+                        { label: "Website", url: "https://www.nopriorspodcast.com", icon: "🌐", cls: "website" },
+                        { label: "Twitter/X", url: "https://x.com/nopriorspodcast", icon: "𝕏", cls: "twitter" }
+                    ]
+                },
+                {
+                    name: "Unsupervised Learning 播客",
+                    title: "Redpoint VC AI 播客 | by Redpoint",
+                    role: "builder",
+                    avatar: "🔴",
+                    tags: ["播客", "VC视角", "Redpoint"],
+                    viewpoint: "红点资本 (Redpoint) 出品的 AI 播客。从投资人角度分析 AI 技术趋势、初创公司和行业变革。",
+                    works: [
+                        "Unsupervised Learning 播客系列"
+                    ],
+                    socials: [
+                        { label: "YouTube", url: "https://www.youtube.com/@RedpointAI", icon: "▶️", cls: "youtube" },
+                        { label: "Twitter/X", url: "https://x.com/redpointvc", icon: "𝕏", cls: "twitter" }
+                    ]
+                },
+                {
+                    name: "The MAD Podcast (Matt Turck)",
+                    title: "Data / ML / AI 前沿 | FirstMark Capital",
+                    role: "builder",
+                    avatar: "📈",
+                    tags: ["播客", "数据驱动", "FirstMark"],
+                    viewpoint: "由 FirstMark Capital 的 Matt Turck 主持，聚焦 Data、Machine Learning 和 AI 领域的前沿动态。涵盖开源项目、企业应用和市场趋势分析。",
+                    works: [
+                        "The MAD (Machine/AI/Data) Podcast"
+                    ],
+                    socials: [
+                        { label: "YouTube", url: "https://www.youtube.com/@DataDrivenNYC", icon: "▶️", cls: "youtube" },
+                        { label: "Twitter/X", url: "https://x.com/mattturck", icon: "𝕏", cls: "twitter" }
+                    ]
+                },
+                {
+                    name: "AI & I by Every",
+                    title: "个人 AI 实践与思考 | Every Inc.",
+                    role: "builder",
+                    avatar: "🤝",
+                    tags: ["播客", "Every", "个人效率"],
+                    viewpoint: "Every 公司出品的播客，探索 AI 如何融入日常工作流和个人生活。关注 AI 工具的实际使用体验和生产力提升。",
+                    works: [
+                        "AI & I 播客系列"
+                    ],
+                    socials: [
+                        { label: "YouTube", url: "https://www.youtube.com/playlist?list=PLuMcoKK9mKgHtW_o9h5sGO2vXrffKHwJL", icon: "▶️", cls: "youtube" },
+                        { label: "Website", url: "https://every.com", icon: "🌐", cls: "website" }
+                    ]
+                },
+
+                // ---- AI Builders on X (25) ----
+                {
+                    name: "Swyx (Shawn Wang)",
+                    title: "Latent Space 主播 | AI Engineer Conference 创始人 | Learn in Public 发起者",
+                    role: "builder",
+                    avatar: "🦋",
+                    tags: ["Latent Space", "smol.ai", "Learn in Public"],
+                    viewpoint: "\"Follow builders, not influencers\" 的践行者。创办 Latent Space 播客（AI Engineer 领域最具影响力的媒体之一）和 AI Engineer Summit 会议。提出 \"Learn in Public\"（公开学习）理念，影响了一整代开发者。",
+                    works: [
+                        "Latent Space 播客 + Newsletter",
+                        "AI Engineer World's Fair 会议",
+                        "《The Coding Career Handbook》",
+                        "smol.ai 开源社区"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/swyx", icon: "𝕏", cls: "twitter" },
+                        { label: "Blog", url: "https://www.swyx.io", icon: "📝", cls: "blog" },
+                        { label: "Website", url: "https://latent.space", icon: "🌐", cls: "website" }
+                    ]
+                },
+                {
+                    name: "Josh Woodward",
+                    title: "Google Labs VP (产品) | 前 OpenAI",
+                    role: "builder",
+                    avatar: "🔬",
+                    tags: ["Google Labs", "AI产品", "Gemini"],
+                    viewpoint: "Google Labs 产品副总裁，负责 Gemini 系列产品的战略方向。前 OpenAI 核心成员。在 AI 产品化和用户体验方面有丰富经验，经常分享关于如何从0到1打造 AI 产品的洞见。",
+                    works: [
+                        "Google Gemini 产品线",
+                        "Google NotebookLM",
+                        "红杉资本访谈：AI 产品创新方法论"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/joshwoodward", icon: "𝕏", cls: "twitter" },
+                        { label: "LinkedIn", url: "https://www.linkedin.com/in/joshwoodward/", icon: "in", cls: "linkedin" }
+                    ]
+                },
+                {
+                    name: "Kevin Weil",
+                    title: "OpenAI Chief Product Officer | 前 xAI / Meta / Twitter",
+                    role: "builder",
+                    avatar: "⚡",
+                    tags: ["OpenAI CPO", "产品策略", "规模化"],
+                    viewpoint: "OpenAI 首席产品官，负责 ChatGPT 和 GPT 系列的产品路线图。曾在 xAI、Meta、Twitter 担任高管。预测「到今年底 AI 将写 99% 的代码」，对 AI 编程革命持激进乐观态度。",
+                    works: [
+                        "OpenAI 产品策略 (ChatGPT / GPT-4o / o1 / o3)",
+                        "xAI Grok 产品早期",
+                        "Twitter/Meta 产品团队"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/kevinweil", icon: "𝕏", cls: "twitter" },
+                        { label: "LinkedIn", url: "https://www.linkedin.com/in/kevinweil/", icon: "in", cls: "linkedin" }
+                    ]
+                },
+                {
+                    name: "Peter Yang",
+                    title: "Product Growth Newsletter 作者 | PM 思想领袖",
+                    role: "builder",
+                    avatar: "📊",
+                    tags: ["Product Growth", "Newsletter", "PM"],
+                    viewpoint: "Product Growth Newsletter 作者（10万+订阅），专注于产品增长和 AI 时代的 PM 能力模型。采访 Linear、Notion 等顶级 SaaS 公司的产品负责人，分享 AI 时代产品管理的新范式。",
+                    works: [
+                        "Product Growth Newsletter",
+                        "PM Skills for the AI Era (与 Nan Yu 对谈)"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/petergyang", icon: "𝕏", cls: "twitter" },
+                        { label: "LinkedIn", url: "https://www.linkedin.com/in/petergyang_heres-my-new-episode-with-nan-yu-linears-activity-7367924686824931329-HzCS", icon: "in", cls: "linkedin" }
+                    ]
+                },
+                {
+                    name: "Nan Yu (于楠)",
+                    title: "Linear Head of Product | B2B SaaS 产品标杆",
+                    role: "builder",
+                    avatar: "🚀",
+                    tags: ["Linear", "B2B SaaS", "产品设计"],
+                    viewpoint: "Linear（估值 $12.5 亿独角兽）的产品负责人，仅用 2 个 PM 打造了 OpenAI、Perplexity、Cursor 团队都在用的项目管理工具。提出「速度和质量可以兼得」的产品哲学。",
+                    works: [
+                        "Linear 产品设计体系",
+                        "\"15 PM Skills for the AI Era\" 对话系列",
+                        "The Linear Method 方法论"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/thenanyu", icon: "𝕏", cls: "twitter" },
+                        { label: "LinkedIn", url: "https://www.linkedin.com/in/nanyulinear/", icon: "in", cls: "linkedin" }
+                    ]
+                },
+                {
+                    name: "Madhu Guru",
+                    title: "AI Builder & Thought Leader",
+                    role: "builder",
+                    avatar: "🎯",
+                    tags: ["AI工具", "产品思维", "Builder"],
+                    viewpoint: "活跃在 X/Twitter 上的 AI Builder，专注分享 AI 工具使用技巧、产品开发经验和独立开发者心得。",
+                    works: [
+                        "X/Twitter 日常 AI 分享"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/realmadhuguru", icon: "𝕏", cls: "twitter" }
+                    ]
+                },
+                {
+                    name: "Amanda Askell",
+                    title: "Anthropic | Claude 安全与对齐研究",
+                    role: "builder",
+                    avatar: "🛡️",
+                    tags: ["Anthropic", "Claude", "AI安全", "RLHF"],
+                    viewpoint: "Anthropic 核心研究员，专注 Claude 的安全性、对齐和 RLHF 研究。经常代表 Anthropic 公开讨论 Claude 的能力边界和安全措施。",
+                    works: [
+                        "Constitutional AI 论文合著",
+                        "Claude RLHF 与安全训练"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/AmandaAskell", icon: "𝕏", cls: "twitter" }
+                    ]
+                },
+                {
+                    name: "Cat Wu (_catwu)",
+                    title: "AI Builder | Google DeepMind / 产品方向",
+                    role: "builder",
+                    avatar: "🐱",
+                    tags: ["Google", "DeepMind", "AI产品"],
+                    viewpoint: "活跃的 AI 社区贡献者，在 Google/DeepMind 相关领域工作。常分享 AI 产品开发、模型能力和技术趋势的一手观察。",
+                    works: [
+                        "X/Twitter AI 观点分享"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/_catwu", icon: "𝕏", cls: "twitter" }
+                    ]
+                },
+                {
+                    name: "Thariq (trq212)",
+                    title: "AI 内容创作者 & Builder",
+                    role: "builder",
+                    avatar: "🎬",
+                    tags: ["AI内容创作", "视频", "教程"],
+                    viewpoint: "AI 内容创作者，通过视频和社交媒体分享 AI 工具评测、教程和最新动态。",
+                    works: [
+                        "AI 工具评测与教程内容"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/trq212", icon: "𝕏", cls: "twitter" }
+                    ]
+                },
+                {
+                    name: "Google Labs (@GoogleLabs)",
+                    title: "Google Labs 官方账号 | Google AI 产品前沿",
+                    role: "builder",
+                    avatar: "🔍",
+                    tags: ["Google Labs", "Gemini", "NotebookLM"],
+                    viewpoint: "Google Labs 官方 X 账号，第一时间发布 Google AI 产品的最新动态、功能更新和实验性项目信息。包括 Gemini、NotebookLM、ImageFX 等产品公告。",
+                    works: [
+                        "Gemini 系列产品更新公告",
+                        "Google 实验性 AI 项目发布",
+                        "NotebookLM / ImageFX 等产品资讯"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/GoogleLabs", icon: "𝕏", cls: "twitter" },
+                        { label: "Website", url: "https://labs.google", icon: "🌐", cls: "website" }
+                    ]
+                },
+                {
+                    name: "Amjad Masad",
+                    title: "Replit CEO & 联合创始人 | AI 编程先驱",
+                    role: "builder",
+                    avatar: "💻",
+                    tags: ["Replit", "AI编程", "Vibe Coding"],
+                    viewpoint: "Replit CEO，将 Replit 打造成拥有 3400 万用户的在线 IDE 平台。「Vibe Coding」概念推动者——让任何人都能用自然语言编程。认为 Replit 是 AGI 的完美载体（Perfect Substrate for AGI）。",
+                    works: [
+                        "Replit AI 编程助手",
+                        "Replit Agent (自主编程 Agent)",
+                        "浏览器端完整开发环境"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/amasad", icon: "𝕏", cls: "twitter" },
+                        { label: "LinkedIn", url: "https://www.linkedin.com/in/amjadmasad", icon: "in", cls: "linkedin" },
+                        { label: "Website", url: "https://replit.com", icon: "🌐", cls: "website" }
+                    ]
+                },
+                {
+                    name: "Guillermo Rauch",
+                    title: "Vercel CEO | Next.js 创始人",
+                    role: "builder",
+                    avatar: "▲",
+                    tags: ["Vercel", "Next.js", "前端AI"],
+                    viewpoint: "Next.js 创建者和 Vercel CEO，定义了现代 Web 开发的标准栈。积极推动 Vercel AI SDK 和 Vercel v0（AI UI 生成器），让 AI 原生 Web 应用成为现实。",
+                    works: [
+                        "Next.js 框架",
+                        "Vercel AI SDK",
+                        "v0.dev (AI 代码生成)"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/rauchg", icon: "𝕏", cls: "twitter" },
+                        { label: "Website", url: "https://vercel.com", icon: "🌐", cls: "website" }
+                    ]
+                },
+                {
+                    name: "Alex Albert",
+                    title: "Anthropic | Claude 产品与开发者关系",
+                    role: "builder",
+                    avatar: "🤖",
+                    tags: ["Anthropic", "Claude", "开发者生态"],
+                    viewpoint: "Anthropic 核心团队成员，负责 Claude 的产品策略和开发者生态建设。频繁发布 Claude API 更新、新功能公告和 MCP (Model Context Protocol) 生态发展信息。",
+                    works: [
+                        "Claude API 产品策略",
+                        "MCP (Model Context Protocol)",
+                        "Anthropic 开发者生态"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/alexalbert__", icon: "𝕏", cls: "twitter" }
+                    ]
+                },
+                {
+                    name: "Aaron Levie",
+                    title: "Box CEO | 企业 AI 变革推动者",
+                    role: "builder",
+                    avatar: "📦",
+                    tags: ["Box", "企业SaaS", "AI Agents"],
+                    viewpoint: "Box 创始人兼 CEO。预言 AI 将催生全新企业角色——「Agent 部署和管理员」。积极探讨 AI Agents 如何重塑企业工作流程，实现 100x 效率提升。",
+                    works: [
+                        "Box AI (智能内容管理)",
+                        "Enterprise AI Agents 战略",
+                        "多次 CES/行业演讲"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/levie", icon: "𝕏", cls: "twitter" },
+                        { label: "LinkedIn", url: "https://www.linkedin.com/in/aaronlevie/", icon: "in", cls: "linkedin" }
+                    ]
+                },
+                {
+                    name: "Ryo Lu (ryolu_)",
+                    title: "AI Builder & 独立开发者",
+                    role: "builder",
+                    avatar: "🌀",
+                    tags: ["独立开发", "AI工具", "Startup"],
+                    viewpoint: "活跃的 AI 独立开发者，分享构建 AI 产品的经验、工具推荐和创业思考。",
+                    works: [
+                        "AI 独立开发项目"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/ryolu_", icon: "𝕏", cls: "twitter" }
+                    ]
+                },
+                {
+                    name: "Garry Tan",
+                    title: "Y Combinator CEO | AI 时代创业者导师",
+                    role: "builder",
+                    avatar: "💰",
+                    tags: ["YC", "创业投资", "AI Startup"],
+                    viewpoint: "Y Combinator 总裁兼 CEO，硅谷最重要的创业孵化器掌门人。大量 YC AI 创业公司背后的关键推手，对 AI 时代的创业趋势有独到见解。",
+                    works: [
+                        "Y Combinator AI Batch 孵化",
+                        "YC 创业指导与投资",
+                        "多场 AI 创业主题演讲"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/garrytan", icon: "𝕏", cls: "twitter" },
+                        { label: "Website", url: "https://www.ycombinator.com", icon: "🌐", cls: "website" }
+                    ]
+                },
+                {
+                    name: "Matt Turck",
+                    title: "FirstMark Capital 合伙人 | MAD Podcast 主播",
+                    role: "builder",
+                    avatar: "📊",
+                    tags: ["FirstMark", "VC", "MAD Podcast", "数据/AI"],
+                    viewpoint: "FirstMark Capital 合伙人，《MAD (Machine/AI/Data) Map》年度报告作者，追踪 AI 和数据领域的创业版图变化。 MAD Podcast 深度访谈 AI 创业者。",
+                    works: [
+                        "MAD (Machine/AI/Data) Map 年度报告",
+                        "The MAD Podcast",
+                        "FirstMark Capital AI 投资"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/mattturck", icon: "𝕏", cls: "twitter" },
+                        { label: "Website", url: "https://datamap.firstmark.com", icon: "🌐", cls: "website" }
+                    ]
+                },
+                {
+                    name: "Zara Zhang (张瑞瑞)",
+                    title: "Hone Capital 合伙人 | follow-builders 联合创作者",
+                    role: "builder",
+                    avatar: "🌟",
+                    tags: ["Hone Capital", "AI投资", "follow-builders"],
+                    viewpoint: "Hone Capital 合伙人，follow-builders 项目的联合创建者。专注中美跨境科技投资，特别是 AI 领域的投资机会。",
+                    works: [
+                        "follow-builders AI Digest",
+                        "Hone Capital AI 投资"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/zarazhangrui", icon: "𝕏", cls: "twitter" },
+                        { label: "LinkedIn", url: "https://www.linkedin.com/in/zarazhang/", icon: "in", cls: "linkedin" }
+                    ]
+                },
+                {
+                    name: "Nikunj Kothari",
+                    title: "AI Builder & 技术领导者",
+                    role: "builder",
+                    avatar: "⚙️",
+                    tags: ["AI工程", "技术领导", "Builder"],
+                    viewpoint: "资深技术领导者和 AI Builder，在大型科技公司负责 AI 相关产品和工程工作。",
+                    works: [
+                        "AI 产品与工程技术"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/nikunj", icon: "𝕏", cls: "twitter" },
+                        { label: "LinkedIn", url: "https://www.linkedin.com/in/nikunj/", icon: "in", cls: "linkedin" }
+                    ]
+                },
+                {
+                    name: "Peter Steinberger (steipete)",
+                    title: "PSPDFKit 创始人 | 独立开发者先驱",
+                    role: "builder",
+                    avatar: "📄",
+                    tags: ["PSPDFKit", "独立开发", "iOS"],
+                    viewpoint: "PSPDFKit (现 Nutrient) 创始人，成功的独立开发者转型案例。分享关于独立开发、AI 工具提升效率和 SaaS 业务的深刻见解。",
+                    works: [
+                        "PSPDFKit / Nutrient PDF SDK",
+                        "独立开发与 AI 效率分享"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/steipete", icon: "𝕏", cls: "twitter" },
+                        { label: "Blog", url: "https://steipete.com", icon: "📝", cls: "blog" }
+                    ]
+                },
+                {
+                    name: "Dan Shipper",
+                    title: "Every CEO | AI 工作流先锋",
+                    role: "builder",
+                    avatar: "✍️",
+                    tags: ["Every", "AI写作", "工作流"],
+                    viewpoint: "Every (formerly Every.to) CEO，将 AI 写作和工作流整合做到极致的个人公司典范。通过自身实践展示 AI 如何改变知识工作者的日常产出方式。",
+                    works: [
+                        "Every (AI 写作与工作流平台)",
+                        "大量 AI 实践文章与指南"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/danshipper", icon: "𝕏", cls: "twitter" },
+                        { label: "Website", url: "https://every.com", icon: "🌐", cls: "website" }
+                    ]
+                },
+                {
+                    name: "Aditya Agarwal",
+                    title: "前 Dropbox CTO | 技术领导者",
+                    role: "builder",
+                    avatar: "☁️",
+                    tags: ["Dropbox", "CTO", "技术管理"],
+                    viewpoint: "前 Dropbox CTO，在大型科技公司有丰富的技术管理和产品经验。关注 AI 时代的技术架构和组织管理变革。",
+                    works: [
+                        "Dropbox 技术架构与工程团队",
+                        "AI 时代的技术管理思考"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/adityaag", icon: "𝕏", cls: "twitter" },
+                        { label: "LinkedIn", url: "https://www.linkedin.com/in/adityaagarwal/", icon: "in", cls: "linkedin" }
+                    ]
+                },
+
+                // ---- 官方博客 (2) ----
+                {
+                    name: "Anthropic Engineering Blog",
+                    title: "Anthropic 官方技术博客 | 深度技术解析",
+                    role: "builder",
+                    avatar: "🔷",
+                    tags: ["Anthropic", "技术博客", "Engineering"],
+                    viewpoint: "Anthropic 官方工程博客，发布 Claude 模型的技术细节、系统架构、安全研究和对齐工作的深度技术文章。是了解 Claude 幕后技术的第一手来源。",
+                    works: [
+                        "Claude 模型技术报告",
+                        "Constitutional AI 详细说明",
+                        "RLHF 训练方法论文"
+                    ],
+                    socials: [
+                        { label: "Website", url: "https://www.anthropic.com/engineering", icon: "🌐", cls: "website" },
+                        { label: "Twitter/X", url: "https://x.com/AnthropicAI", icon: "𝕏", cls: "twitter" }
+                    ]
+                },
+                {
+                    name: "Claude Blog",
+                    title: "Claude 官方博客 | 产品更新与功能发布",
+                    role: "builder",
+                    avatar: "🤖",
+                    tags: ["Claude", "产品博客", "Anthropic"],
+                    viewpoint: "Claude 官方博客，发布 Claude 产品的新功能、使用技巧、API 更新和用户故事。是 Claude 用户获取一手产品信息的最佳渠道。",
+                    works: [
+                        "Claude 新功能公告",
+                        "MCP (Model Context Protocol) 生态更新",
+                        "Claude Code / Artifacts 功能介绍"
+                    ],
+                    socials: [
+                        { label: "Website", url: "https://claude.com/blog", icon: "🌐", cls: "website" },
+                        { label: "Twitter/X", url: "https://x.com/ClaudeAI", icon: "𝕏", cls: "twitter" }
+                    ]
+                }
             ]
-        };
 
         // ===== RENDER FUNCTIONS =====
         
@@ -1445,7 +1952,8 @@
                 leader: "领袖",
                 researcher: "研究者",
                 entrepreneur: "企业家",
-                blogger: "媒体/博主"
+                blogger: "媒体/博主",
+                builder: "Builder"
             }[person.role];
 
             const tagsHtml = person.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
@@ -1503,6 +2011,8 @@
                 peopleData.researcher.map((p, i) => createCard(p, i)).join('');
             document.getElementById('media-grid').innerHTML = 
                 peopleData.media.map((p, i) => createCard(p, i)).join('');
+            document.getElementById('builders-grid').innerHTML = 
+                peopleData.builders.map((p, i) => createCard(p, i)).join('');
 
             updateTotalCount();
         }

@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI领域知名人物指南 | 全球AI领袖、研究者与博主清单</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a28;
+            --bg-hover: #222238;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b8;
+            --text-muted: #6b6b80;
+            --accent-primary: #6366f1;
+            --accent-secondary: #8b5cf6;
+            --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+            --border-color: rgba(99, 102, 241, 0.15);
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.3;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 600px;
+            height: 600px;
+            background: var(--accent-primary);
+            top: -200px;
+            right: -200px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 500px;
+            height: 500px;
+            background: var(--accent-secondary);
+            bottom: -150px;
+            left: -150px;
+            animation-delay: -7s;
+        }
+
+        .orb-3 {
+            width: 400px;
+            height: 400px;
+            background: #ec4899;
+            top: 50%;
+            left: 30%;
+            animation-delay: -14s;
+            opacity: 0.15;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.05); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+        }
+
+        /* Header */
+        header {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 80px 20px 60px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid var(--border-color);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 13px;
+            color: var(--accent-primary);
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .header-badge::before {
+            content: "🤖";
+        }
+
+        h1 {
+            font-size: clamp(32px, 6vw, 64px);
+            font-weight: 800;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: clamp(16px, 2vw, 20px);
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            position: relative;
+            z-index: 10;
+            padding: 30px 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(18, 18, 26, 0.8);
+            backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+        }
+
+        .filter-btn {
+            padding: 10px 22px;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+            border-color: var(--accent-primary);
+        }
+
+        .filter-btn.active {
+            background: var(--accent-gradient);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Main Content */
+        main {
+            position: relative;
+            z-index: 10;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .section-icon.international { background: linear-gradient(135deg, #3b82f6, #6366f1); }
+        .section-icon.china { background: linear-gradient(135deg, #ef4444, #f59e0b); }
+        .section-icon.researchers { background: linear-gradient(135deg, #10b981, #06b6d4); }
+        .section-icon.media { background: linear-gradient(135deg, #8b5cf6, #ec4899); }
+
+        .section-title {
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .category-section {
+            margin-bottom: 60px;
+        }
+
+        /* Person Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 24px;
+        }
+
+        @media (max-width: 480px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .person-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 28px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .person-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .person-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(99, 102, 241, 0.35);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(99, 102, 241, 0.1);
+        }
+
+        .person-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            margin-bottom: 20px;
+        }
+
+        .avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .avatar-leader { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
+        .avatar-researcher { background: linear-gradient(135deg, #10b981, #06b6d4); }
+        .avatar-entrepreneur { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+        .avatar-blogger { background: linear-gradient(135deg, #ec4899, #8b5cf6); }
+
+        .card-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .card-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .role-badge {
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-leader { background: rgba(99, 102, 241, 0.2); color: #818cf8; }
+        .badge-researcher { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+        .badge-entrepreneur { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+        .badge-blogger { background: rgba(236, 72, 153, 0.2); color: #f472b6; }
+
+        .card-title {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .card-body {
+            margin-top: 16px;
+        }
+
+        .viewpoint-section {
+            margin-bottom: 18px;
+        }
+
+        .viewpoint-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .viewpoint-title::before {
+            content: "💡";
+        }
+
+        .viewpoint-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .works-section {
+            margin-bottom: 18px;
+        }
+
+        .works-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .works-title::before {
+            content: "📚";
+        }
+
+        .work-item {
+            font-size: 13px;
+            color: var(--text-secondary);
+            padding: 6px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .work-item:last-child {
+            border-bottom: none;
+        }
+
+        .work-item::before {
+            content: "→";
+            color: var(--accent-primary);
+            flex-shrink: 0;
+            font-size: 11px;
+            margin-top: 2px;
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 18px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 14px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-secondary);
+            border: 1px solid transparent;
+        }
+
+        .social-link:hover {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--text-primary);
+            border-color: var(--border-color);
+            transform: translateY(-2px);
+        }
+
+        .social-link.twitter { color: #1da1f2; }
+        .social-link.youtube { color: #ff0000; }
+        .social-link.linkedin { color: #0077b5; }
+        .social-link.github { color: #fff; }
+        .social-link.weibo { color: #ff8200; }
+        .social-link.zhihu { color: #0084ff; }
+        .social-link.bilibili { color: #00a1d6; }
+        .social-link.website { color: var(--accent-primary); }
+        .social-link.blog { color: var(--success); }
+
+        /* Footer */
+        footer {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        footer a {
+            color: var(--accent-primary);
+            text-decoration: none;
+        }
+
+        /* Search Box */
+        .search-container {
+            position: relative;
+            z-index: 10;
+            max-width: 600px;
+            margin: -20px auto 0;
+            padding: 0 20px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 16px 24px 16px 52px;
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 15px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15), 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .search-box::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 34px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 18px;
+        }
+
+        /* No results */
+        .no-results {
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--text-muted);
+        }
+
+        .no-results-icon {
+            font-size: 64px;
+            margin-bottom: 16px;
+            opacity: 0.5;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--bg-hover);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-primary);
+        }
+
+        /* Animation for cards appearing */
+        .person-card {
+            animation: fadeInUp 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Tags */
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 14px;
+        }
+
+        .tag {
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: rgba(99, 102, 241, 0.08);
+            color: var(--text-secondary);
+            border: 1px solid rgba(99, 102, 241, 0.12);
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="bg-orb orb-1"></div>
+        <div class="bg-orb orb-2"></div>
+        <div class="bg-orb orb-3"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-badge">2024-2025 年度整理 · 持续更新</div>
+        <h1>🌐 AI 领域知名人物指南</h1>
+        <p class="subtitle">汇集全球 AI 领域最具影响力的企业家、研究者和博主，涵盖社交媒体链接、核心观点与代表作品</p>
+        <div class="stats-row">
+            <div class="stat-item">
+                <div class="stat-number" id="total-count">40+</div>
+                <div class="stat-label">收录人物</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4</div>
+                <div class="stat-label">分类维度</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">社交链接</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Search -->
+    <div class="search-container">
+        <span class="search-icon">🔍</span>
+        <input type="text" class="search-box" id="searchInput" placeholder="搜索人物名称、公司或关键词...">
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="filter-section">
+        <button class="filter-btn active" data-filter="all">全部</button>
+        <button class="filter-btn" data-filter="international">🌍 国际领袖</button>
+        <button class="filter-btn" data-filter="china">🇨🇳 国内领袖</button>
+        <button class="filter-btn" data-filter="researcher">🔬 学术泰斗</button>
+        <button class="filter-btn" data-filter="media">📰 媒体/博主</button>
+    </div>
+
+    <!-- Main Content -->
+    <main id="mainContent">
+
+        <!-- ==================== 国际AI领袖 ==================== -->
+        <div class="category-section" data-category="international">
+            <div class="section-header">
+                <div class="section-icon international">🌍</div>
+                <div>
+                    <h2 class="section-title">国际 AI 领袖</h2>
+                    <p class="section-subtitle">全球最具影响力的 AI 企业家与技术领袖</p>
+                </div>
+            </div>
+            <div class="cards-grid" id="international-grid">
+                <!-- Cards will be inserted by JS -->
+            </div>
+        </div>
+
+        <!-- ==================== 国内AI领袖 ==================== -->
+        <div class="category-section" data-category="china">
+            <div class="section-header">
+                <div class="section-icon china">🇨🇳</div>
+                <div>
+                    <h2 class="section-title">国内 AI 领袖</h2>
+                    <p class="section-subtitle">中国 AI 大模型与产业化的核心推动者</p>
+                </div>
+            </div>
+            <div class="cards-grid" id="china-grid">
+            </div>
+        </div>
+
+        <!-- ==================== 学术泰斗 ==================== -->
+        <div class="category-section" data-category="researcher">
+            <div class="section-header">
+                <div class="section-icon researchers">🔬</div>
+                <div>
+                    <h2 class="section-title">学术泰斗 & 研究者</h2>
+                    <p class="section-subtitle">深度学习奠基人与前沿探索者</p>
+                </div>
+            </div>
+            <div class="cards-grid" id="researcher-grid">
+            </div>
+        </div>
+
+        <!-- ==================== 媒体/博主 ==================== -->
+        <div class="category-section" data-category="media">
+            <div class="section-header">
+                <div class="section-icon media">📰</div>
+                <div>
+                    <h2 class="section-title">媒体 & 知名博主</h2>
+                    <p class="section-subtitle">AI 资讯传播者与深度内容创作者</p>
+                </div>
+            </div>
+            <div class="cards-grid" id="media-grid">
+            </div>
+        </div>
+
+        <!-- No Results Message -->
+        <div class="no-results hidden" id="noResults">
+            <div class="no-results-icon">🔍</div>
+            <p>没有找到匹配的人物，试试其他关键词？</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>数据整理于 2025年 · 信息来源于公开网络 · 如有错误欢迎反馈</p>
+        <p style="margin-top: 8px;">Made with ❤️ for AI Community</p>
+    </footer>
+
+    <script>
+        // ===== DATA =====
+        const peopleData = {
+            // ==================== 国际AI领袖 ====================
+            international: [
+                {
+                    name: "Sam Altman (萨姆·奥特曼)",
+                    title: "OpenAI CEO | ChatGPT之父",
+                    role: "leader",
+                    avatar: "🧑‍💼",
+                    tags: ["AGI", "ChatGPT", "创业"],
+                    viewpoint: "坚信 AGI（通用人工智能）将在不久的将来实现。提出「温和奇点」理论，认为未来十年 AI 将从根本上改变人类体验。强调 AI 安全与对齐的重要性，同时推动开源与商业化的平衡。",
+                    works: [
+                        "《Machines of Loving Grace》(2025博客长文)",
+                        "《Planning for AGI and beyond》",
+                        "OpenAI GPT系列模型 (GPT-4/GPT-4o/o1/o3)"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/sama", icon: "𝕏", cls: "twitter" },
+                        { label: "Blog", url: "https://blog.samaltman.com/", icon: "📝", cls: "blog" },
+                        { label: "Website", url: "https://openai.com", icon: "🏢", cls: "website" }
+                    ]
+                },
+                {
+                    name: "Elon Musk (埃隆·马斯克)",
+                    title: "Tesla CEO | xAI 创始人 | X owner",
+                    role: "leader",
+                    avatar: "🚀",
+                    tags: ["xAI", "Grok", "自动驾驶", "火星"],
+                    viewpoint: "AI 是人类面临的最大威胁之一，需要严格监管。创立 xAI 追求「追求真相」的 AI（Grok），强调 AI 应当理解宇宙的本质。对 OpenAI 从非营利转向营利化持批评态度。",
+                    works: [
+                        "Grok 系列 AI 模型",
+                        "Tesla FSD 自动驾驶系统",
+                        "Neuralink 脑机接口"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/elonmusk", icon: "𝕏", cls: "twitter" },
+                        { label: "xAI", url: "https://x.ai", icon: "🤖", cls: "website" },
+                        { label: "Website", url: "https://tesla.com", icon: "⚡", cls: "website" }
+                    ]
+                },
+                {
+                    name: "Jensen Huang (黄仁勋)",
+                    title: "NVIDIA CEO | AI算力之王",
+                    role: "leader",
+                    avatar: "🎮",
+                    tags: ["GPU", "CUDA", "算力", "芯片"],
+                    viewpoint: "「AI 的 iPhone 时刻已经到来」。NVIDIA GPU 成为 AI 训练和推理的核心硬件基础。强调加速计算是计算的未来，持续推动 CUDA 生态系统发展。",
+                    works: [
+                        "NVIDIA H100/B200 GPU 架构",
+                        "CUDA 并行计算平台",
+                        "GTC 主题演讲系列"
+                    ],
+                    socials: [
+                        { label: "LinkedIn", url: "https://www.linkedin.com/in/jenhsunhuang/", icon: "in", cls: "linkedin" },
+                        { label: "Website", url: "https://www.nvidia.com", icon: "🟢", cls: "website" }
+                    ]
+                },
+                {
+                    name: "Dario Amodei (达里奥·阿莫迪)",
+                    title: "Anthropic CEO | Claude之父",
+                    role: "leader",
+                    avatar: "🛡️",
+                    tags: ["Claude", "AI安全", "Constitutional AI"],
+                    viewpoint: "专注于 AI 安全和对齐研究。提出「Constitutional AI」（宪法AI）理念，强调 AI 应当有益、无害且诚实。发布《Machines of Loving Grace》阐述 AI 积极愿景。",
+                    works: [
+                        "Claude 系列 (Claude 3.5/4 Opus/Sonnet)",
+                        "《Machines of Loving Grace》",
+                        "Constitutional AI 论文"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/darioamodei", icon: "𝕏", cls: "twitter" },
+                        { label: "Website", url: "https://www.anthropic.com", icon: "🏢", cls: "website" }
+                    ]
+                },
+                {
+                    name: "Demis Hassabis (戴密斯·哈萨比斯)",
+                    title: "Google DeepMind CEO | 图灵奖得主",
+                    role: "researcher",
+                    avatar: "♟️",
+                    tags: ["AlphaGo", "AlphaFold", "AGI"],
+                    viewpoint: "致力于用 AI 解决科学难题。AlphaGo 战胜围棋世界冠军，AlphaFold 预测蛋白质结构。认为 AI 可以「将一个世纪的科学进步压缩到十年内完成」。",
+                    works: [
+                        "AlphaGo / AlphaZero / AlphaFold",
+                        "2018年诺贝尔化学奖（AlphaFold）",
+                        "《Building systems that can achieve general intelligence》"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/demishassabis", icon: "𝕏", cls: "twitter" },
+                        { label: "Website", url: "https://deepmind.google", icon: "🔷", cls: "website" }
+                    ]
+                },
+                {
+                    name: "Andrej Karpathy (安德烈·卡帕西)",
+                    title: "前 Tesla AI 总监 | OpenAI 创始成员",
+                    role: "researcher",
+                    avatar: "🧠",
+                    tags: ["深度学习", "AI教育", "NanoGPT"],
+                    viewpoint: "AI 教育领域的标杆人物。擅长用通俗易懂的方式讲解复杂概念。「Software 2.0」理念——用神经网络替代传统编程。近期专注 AI 编程工具。",
+                    works: [
+                        "CS231n 斯坦福深度学习课程",
+                        "NanoGPT / micrograd 开源项目",
+                        "《Yes you should understand backprop》博客系列"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/karpathy", icon: "𝕏", cls: "twitter" },
+                        { label: "GitHub", url: "https://github.com/karpathy", icon: "🐙", cls: "github" },
+                        { label: "YouTube", url: "https://youtube.com/@karpathy", icon: "▶️", cls: "youtube" }
+                    ]
+                },
+                {
+                    name: "Ilya Sutskever (伊利亚·苏茨克维)",
+                    title: "SSI (Safe Superintelligence) 创始人 | OpenAI 联合创始人",
+                    role: "researcher",
+                    avatar: "🔮",
+                    tags: ["Transformer", "超级智能", "AI安全"],
+                    viewpoint: "Transformer 论文共同一作。从 OpenAI 离职后创立 SSI，专注于安全的超级智能研究。强调 AI 安全是对齐问题的核心挑战。",
+                    works: [
+                        "《Attention is All You Need》(Transformer论文)",
+                        "Sequence to Sequence Learning 论文",
+                        "SSI (Safe Superintelligence Inc.)"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/ilyasut", icon: "𝕏", cls: "twitter" },
+                        { label: "Website", url: "https://ssi.inc", icon: "🔒", cls: "website" }
+                    ]
+                },
+                {
+                    name: "Satya Nadella (萨提亚·纳德拉)",
+                    title: "Microsoft CEO",
+                    role: "leader",
+                    avatar: "💼",
+                    tags: ["Azure", "Copilot", "企业AI"],
+                    viewpoint: "将 Microsoft 定位为「AI 时代的平台公司」。通过 Azure 云服务 + OpenAI 技术合作推动 AI 在企业的落地。Copilot 产品线全面融入 Office 生态。",
+                    works: [
+                        "Microsoft Copilot 全家桶",
+                        "Azure AI 平台",
+                        "Microsoft + OpenAI 战略投资"
+                    ],
+                    socials: [
+                        { label: "LinkedIn", url: "https://www.linkedin.com/in/satyanadella/", icon: "in", cls: "linkedin" },
+                        { label: "Twitter/X", url: "https://x.com/satyanadella", icon: "𝕏", cls: "twitter" }
+                    ]
+                },
+                {
+                    name: "Sundar Pichai (桑达尔·皮查伊)",
+                    title: "Google CEO | Alphabet CEO",
+                    role: "leader",
+                    avatar: "🔍",
+                    tags: ["Gemini", "DeepMind", "Google AI"],
+                    viewpoint: "推动 Google 全面转向 AI 优先战略。Gemini 系列模型、Gemini Ultra 与 OpenAI 正面竞争。整合 DeepMind 团队，打造统一的 Google AI 力量。",
+                    works: [
+                        "Gemini 系列 AI 模型",
+                        "Google AI Studio / Vertex AI",
+                        "TPU 自研芯片"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/sundarpichai", icon: "𝕏", cls: "twitter" },
+                        { label: "LinkedIn", url: "https://www.linkedin.com/in/sundarpichai/", icon: "in", cls: "linkedin" }
+                    ]
+                },
+                {
+                    name: "Mark Zuckerberg (马克·扎克伯格)",
+                    title: "Meta CEO | LLaMA 开源推动者",
+                    role: "leader",
+                    avatar: "👓",
+                    tags: ["LLaMA", "Meta AI", "开源大模型"],
+                    viewpoint: "坚定支持 AI 开源路线。LLaMA 系列的开源改变了行业格局。将 AI 作为 Meta 元宇宙战略的核心技术支撑。",
+                    works: [
+                        "LLaMA 系列 (Llama 2/3/4)",
+                        "PyTorch 开源框架",
+                        "Meta AI Research"
+                    ],
+                    socials: [
+                        { label: "Threads", url: "https://www.threads.net/@zuck", icon: "🧵", cls: "twitter" },
+                        { label: "Website", url: "https://about.meta.com", icon: "🏢", cls: "website" }
+                    ]
+                },
+                {
+                    name: "Mustafa Suleyman (穆斯塔法·苏莱曼)",
+                    title: "Microsoft AI CEO | DeepMind 联合创始人",
+                    role: "leader",
+                    avatar: "🌊",
+                    tags: ["Inflection", "Pi", "AI伦理"],
+                    viewpoint: "著有《即将到来的浪潮》（The Coming Wave），深入探讨 AI 技术 containment 问题。从 DeepMind 到 Inflection AI 再到微软，始终关注 AI 对社会的深远影响。",
+                    works: [
+                        "《The Coming Wave》(即将到来的浪潮)",
+                        "Pi 对话式 AI (Inflection)",
+                        "DeepMind 联合创始"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/MustafaSBlymn", icon: "𝕏", cls: "twitter" },
+                        { label: "LinkedIn", url: "https://www.linkedin.com/in/mustafasuleyman/", icon: "in", cls: "linkedin" }
+                    ]
+                },
+                {
+                    name: "Aravind Srinivas (阿拉温德·斯里尼瓦斯)",
+                    title: "Perplexity AI CEO",
+                    role: "leader",
+                    avatar: "❓",
+                    tags: ["Perplexity", "搜索", "RAG"],
+                    viewpoint: "重新定义搜索引擎——基于 AI 的对话式答案引擎 Perplexity。挑战 Google 搜索垄断地位，提供带引用来源的 AI 回答体验。",
+                    works: [
+                        "Perplexity AI 搜索引擎",
+                        "pplx.ai API 平台"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/aravsrinivas", icon: "𝕏", cls: "twitter" },
+                        { label: "Website", url: "https://perplexity.ai", icon: "🔎", cls: "website" }
+                    ]
+                },
+                {
+                    name: "Alexandr Wang (亚历山大·王)",
+                    title: "Scale AI CEO",
+                    role: "leader",
+                    avatar: "⚖️",
+                    tags: ["数据标注", "RLHF", "AI基础设施"],
+                    viewpoint: "Scale AI 是 AI 数据标注和 RLHF 领域的隐形冠军，服务于 OpenAI、Google、Meta 等巨头。被称为「最年轻的亿万富翁」之一。",
+                    works: [
+                        "Scale AI 数据标注平台",
+                        "RLHF 数据服务"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/alexandr_wang", icon: "𝕏", cls: "twitter" },
+                        { label: "Website", url: "https://scale.com", icon: "🏢", cls: "website" }
+                    ]
+                }
+            ],
+
+            // ==================== 国内AI领袖 ====================
+            china: [
+                {
+                    name: "李彦宏",
+                    title: "百度创始人兼CEO | 文心一言 ERNIE Bot",
+                    role: "leader",
+                    avatar: "🔵",
+                    tags: ["百度", "文心一言", "自动驾驶"],
+                    viewpoint: "中国唯一入选《时代》百大AI人物的科技领袖。坚持「AI原生应用」理念，推动百度从搜索引擎向 AI 公司转型。文心一言是国内首个对标 ChatGPT 的大模型产品。",
+                    works: [
+                        "文心一言 (ERNIE Bot / ERNIEmax)",
+                        "Apollo 自动驾驶平台",
+                        "《智能革命：迎接人工智能时代的社会、经济与文化变革》"
+                    ],
+                    socials: [
+                        { label: "微博", url: "https://weibo.com/liyanhong", icon: "📱", cls: "weibo" },
+                        { label: "Website", url: "https://www.baidu.com", icon: "🔵", cls: "website" }
+                    ]
+                },
+                {
+                    name: "李开复",
+                    title: "创新工场董事长 | ZeroOne 万物一体",
+                    role: "entrepreneur",
+                    avatar: "🎯",
+                    tags: ["创新工场", "AI投资", "零一万物"],
+                    viewpoint: "预测国内基座大模型将只剩 DeepSeek、阿里、字节三家。长期关注 AI 产业化落地，创办零一万物（Yi 系列模型）。著有多本 AI 相关畅销书。",
+                    works: [
+                        "《AI 未来》(AI Superpowers)",
+                        "《AI 2.0》(AI 2041: Ten Visions for Our Future)",
+                        "Yi 系列大模型 (零一万物)"
+                    ],
+                    socials: [
+                        { label: "微博", url: "https://weibo.com/kaifulee", icon: "📱", cls: "weibo" },
+                        { label: "Twitter/X", url: "https://x.com/kaifu_lee", icon: "𝕏", cls: "twitter" },
+                        { label: "公众号", url: "", icon: "💬", cls: "blog" }
+                    ]
+                },
+                {
+                    name: "周鸿祎",
+                    title: "360集团创始人 | 360智脑",
+                    role: "entrepreneur",
+                    avatar: "🛡️",
+                    tags: ["360", "AI安全", "大模型应用"],
+                    viewpoint: "\"一定要给AI找场景，而不是一味造大模型\"。积极推动大模型在安全领域的应用。2024年与傅盛\"一笑泯恩仇\"，共同探讨 AI 大潮下的创新机会。",
+                    works: [
+                        "360智脑大模型",
+                        "《周鸿祎自述：我的互联网方法论》",
+                        "多场 AI 公开演讲与直播"
+                    ],
+                    socials: [
+                        { label: "微博", url: "https://weiqqiuji.com", icon: "📱", cls: "weibo" },
+                        { label: "视频号", url: "", icon: "🎬", cls: "blog" },
+                        { label: "公众号", url: "", icon: "💬", cls: "blog" }
+                    ]
+                },
+                {
+                    name: "傅盛",
+                    title: "猎豹移动CEO | 猎户星空",
+                    role: "entrepreneur",
+                    avatar: "🐆",
+                    tags: ["猎豹移动", "大模型应用", "机器人"],
+                    viewpoint: "2024开年AI大课引发广泛关注。聚焦大模型的实际应用落地，而非盲目追求参数规模。猎户星空大模型在机器人和服务场景有大量实践。",
+                    works: [
+                        "猎户星空大模型 (OrionStar)",
+                        "《傅盛2024开年AI大课》",
+                        "多款服务机器人产品"
+                    ],
+                    socials: [
+                        { label: "公众号", url: "", icon: "💬", cls: "blog" },
+                        { label: "微博", url: "https://weibo.com/fusheng", icon: "📱", cls: "weibo" }
+                    ]
+                },
+                {
+                    name: "王兴兴 (Wang Xingxing)",
+                    title: "宇树科技(Unitree)创始人 | 人形机器人先驱",
+                    role: "entrepreneur",
+                    avatar: "🤖",
+                    tags: ["宇树科技", "人形机器人", "四足机器人"],
+                    viewpoint: "2025年度AI人物之一。宇树科技的机器人产品在春晚等大型舞台亮相，推动了人形机器人和四足机器人的商业化进程。",
+                    works: [
+                        "Unitree G1/H1 人形机器人",
+                        "Unitree Go1/B2 四足机器人",
+                        "春晚机器人表演"
+                    ],
+                    socials: [
+                        { label: "B站", url: "https://space.bilibili.com/unitreerobotics", icon: "📺", cls: "bilibili" },
+                        { label: "Website", url: "https://www.unitree.com", icon: "🏢", cls: "website" }
+                    ]
+                },
+                {
+                    name: "任正非",
+                    title: "华为创始人 | 盘古大模型",
+                    role: "leader",
+                    avatar: "🏔️",
+                    tags: ["华为", "盘古大模型", "昇腾芯片"],
+                    viewpoint: "入选《时代》2025年度AI影响力人物。华为以盘古大模型+昇腾AI芯片构建自主AI生态。强调AI应当赋能千行百业。",
+                    works: [
+                        "华为盘古大模型 (Pangu Model)",
+                        "昇腾 (Ascend) AI 芯片",
+                        "华为全栈 AI 解决方案"
+                    ],
+                    socials: [
+                        { label: "华为官网", url: "https://www.huawei.com/cn", icon: "🏢", cls: "website" }
+                    ]
+                },
+                {
+                    name: "王小川",
+                    title: "百川智能创始人兼CEO",
+                    role: "entrepreneur",
+                    avatar: "🌊",
+                    tags: ["百川智能", "Baichuan", "搜狗"],
+                    viewpoint: "从搜狗到百川智能，持续深耕 AI 语言技术。百川大模型在中文处理能力上有独特优势，定位为「中国版的 OpenAI」。",
+                    works: [
+                        "百川智能 Baichuan 系列大模型",
+                        "搜狗输入法 / 搜索引擎",
+                        "AI 医疗助手"
+                    ],
+                    socials: [
+                        { label: "公众号", url: "", icon: "💬", cls: "blog" },
+                        { label: "微博", url: "https://weiqqiuji.com", icon: "📱", cls: "weibo" },
+                        { label: "Website", url: "https://www.baichuan-ai.com", icon: "🏢", cls: "website" }
+                    ]
+                },
+                {
+                    name: "张鹏",
+                    title: "智谱AI CEO | GLM/ChatGLM",
+                    role: "entrepreneur",
+                    avatar: "🔷",
+                    tags: ["智谱AI", "GLM", "ChatGLM"],
+                    viewpoint: "智谱AI源自清华大学KEG实验室。ChatGLM系列是国内最早开源的大模型之一，在学术界和工业界都有广泛影响力。2025年度AI人物。",
+                    works: [
+                        "ChatGLM / GLM-4 系列大模型",
+                        "智谱清言 AI 助手",
+                        "CogView 图像生成模型"
+                    ],
+                    socials: [
+                        { label: "Website", url: "https://chatglm.cn", icon: "🔷", cls: "website" },
+                        { label: "GitHub", url: "https://github.com/THUDM", icon: "🐙", cls: "github" }
+                    ]
+                },
+                {
+                    name: "王慧文 (原美团联合创始人)",
+                    title: "光年之外 (原) | 一流科技",
+                    role: "entrepreneur",
+                    avatar: "💡",
+                    tags: ["光年之外", "美团", "AI创业"],
+                    viewpoint: "2023年宣布入局 AI 大模型创业，引发行业震动。虽然光年之后被收购，但其入局标志着互联网老兵大规模进入AI赛道的重要信号。",
+                    works: [
+                        "光年之外 AI 公司 (被美团收购)",
+                        "美团早期联合创始人",
+                        "AI 创业宣言引发热议"
+                    ],
+                    socials: [
+                        { label: "微博", url: "https://weiqqiuji.com", icon: "📱", cls: "weibo" }
+                    ]
+                },
+                {
+                    name: "姜大昕",
+                    title: "阶跃星辰(StepFun)创始人 | 星辰大模型",
+                    role: "entrepreneur",
+                    avatar: "⭐",
+                    tags: ["阶跃星辰", "Step", "多模态"],
+                    viewpoint: "前微软副总裁，创立阶跃星辰。Step系列大模型在国内评测中表现优异。2025年度AI人物之一。",
+                    works: [
+                        "Step-1 / Step-1V / Step-2 大模型",
+                        "阶跃星辰开放平台",
+                        "多模态能力突破"
+                    ],
+                    socials: [
+                        { label: "Website", url: "https://www.stepfun.com", icon: "🏢", cls: "website" }
+                    ]
+                },
+                {
+                    name: "曾毅",
+                    title: "中国科学院研究员 | 《时代》AI思想者",
+                    role: "researcher",
+                    avatar: "🧬",
+                    tags: ["中科院", "AI治理", "神经科学"],
+                    viewpoint: "入选《时代》周刊全球百大AI思想者。中国科学院自动化研究所研究员，专注 AI 与神经科学的交叉研究及 AI 治理问题。",
+                    works: [
+                        "类脑智能研究",
+                        "AI 治理与伦理框架",
+                        "多篇 Nature/Science 论文"
+                    ],
+                    socials: [
+                        { label: "中科院", url: "http://www.ia.cas.cn", icon: "🏛️", cls: "website" }
+                    ]
+                }
+            ],
+
+            // ==================== 学术泰斗 ====================
+            researcher: [
+                {
+                    name: "Geoffrey Hinton (杰弗里·辛顿)",
+                    title: "图灵奖得主 | AI教父 | 多伦多大学荣休教授",
+                    role: "researcher",
+                    avatar: "👴",
+                    tags: ["深度学习", "反向传播", "神经网络"],
+                    viewpoint: "2024年诺贝尔物理学奖获得者（虽非直接因AI获奖但密切相关）。论文引用量破百万级。2023年从谷歌离职，公开表达对AI风险的担忧。深度学习和反向传播算法的关键贡献者。",
+                    works: [
+                        "1986年反向传播算法经典论文",
+                        "2012 AlexNet (ImageNet 冠军)",
+                        "2024 Nobel Prize in Physics"
+                    ],
+                    socials: [
+                        { label: "Google Scholar", url: "https://scholar.google.com/citations?user=JicYPdAAAAAJ", icon: "📚", cls: "blog" },
+                        { label: "Twitter/X", url: "https://x.com/geoffreyhinton", icon: "𝕏", cls: "twitter" }
+                    ]
+                },
+                {
+                    name: "Yoshua Bengio (约书亚·本吉奥)",
+                    title: "图灵奖得主 | Mila创始人 | 全球首位百万引用学者",
+                    role: "researcher",
+                    avatar: "🎓",
+                    tags: ["深度学习", "生成模型", "AI安全"],
+                    viewpoint: "全球首位 Google Scholar 引用量破百万的研究者。Mila (魁北克 AI 研究所) 创始人。近年来重点关注 AI 安全和超级智能风险，参与 Science 政策论坛呼吁负责任 AI 发展。",
+                    works: [
+                        "《Deep Learning》(花书) 合著者",
+                        "A Neural Probabilistic Language Model",
+                        "Generative Adversarial Networks (GAN)"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/YoshuaBengio", icon: "𝕏", cls: "twitter" },
+                        { label: "Website", url: "https://mila.quebec/en/directory/yoshua-bengio/", icon: "🏛️", cls: "website" }
+                    ]
+                },
+                {
+                    name: "Yann LeCun (扬·勒丘恩)",
+                    title: "Meta首席AI科学家 | 图灵奖得主 | CNN之父",
+                    role: "researcher",
+                    avatar: "🦁",
+                    tags: ["CNN", "LeNet", "自监督学习", "世界模型"],
+                    viewpoint: "卷积神经网络 (CNN) 的发明者，LeNet 开创了现代深度学习的先河。当前大力推广「世界模型」和 JEPA（联合嵌入预测架构）理念，对纯自回归模型持批判态度。",
+                    works: [
+                        "LeNet-5 卷积神经网络",
+                        "CNN (Convolutional Neural Network)",
+                        "JEPA / V-JEPA 世界模型架构"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/ylecun", icon: "𝕏", cls: "twitter" },
+                        { label: "Website", url: "https://ai.facebook.com/people/yann-lecun/", icon: "🏢", cls: "website" }
+                    ]
+                },
+                {
+                    name: "Fei-Fei Li (李飞飞)",
+                    title: "斯坦福大学教授 | ImageNet 创建者 | AI4ALL 联合创始人",
+                    role: "researcher",
+                    avatar: "👩‍🔬",
+                    tags: ["计算机视觉", "ImageNet", "AI for All", "空间智能"],
+                    viewpoint: "ImageNet 数据集的创建者，开启了深度学习在视觉领域的黄金时代。倡导「以人为本的 AI」(Human-Centered AI)，近年提出「空间智能」(Spatial Intelligence) 概念。《时代》AI年度人物之一。",
+                    works: [
+                        "ImageNet 数据集 (2009)",
+                        "《The World I See》(我看见的世界) 自传",
+                        "Stanford HAI (Human-Centered AI Institute)"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/drfeifei", icon: "𝕏", cls: "twitter" },
+                        { label: "Website", url: "https://profiles.stanford.edu/fei-fei-li", icon: "🏛️", cls: "website" }
+                    ]
+                },
+                {
+                    name: "Andrew Ng (吴恩达)",
+                    title: "Coursera联合创始人 | Landing AI CEO | 斯坦福教授",
+                    role: "researcher",
+                    avatar: "👨‍🏫",
+                    tags: ["机器学习教育", "DeepLearning.AI", "AI转型"],
+                    viewpoint: "全球最有影响力的 AI 教育者之一。Coursera 上的 Machine Learning 课程培养了数百万学习者。创办 DeepLearning.AI 和 Landing AI，推动 AI 在中小企业中的落地。",
+                    works: [
+                        "Machine Learning / Deep Learning Specialization (Coursera)",
+                        "Google Brain 联合创始人",
+                        "AI For Everyone 课程"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/andrewyng", icon: "𝕏", cls: "twitter" },
+                        { label: "LinkedIn", url: "https://www.linkedin.com/in/andrewyng/", icon: "in", cls: "linkedin" },
+                        { label: "YouTube", url: "https://www.youtube.com/deeplearningai", icon: "▶️", cls: "youtube" }
+                    ]
+                },
+                {
+                    name: "姚期智 (Andrew Yao)",
+                    title: "图灵奖得主 | 清华大学交叉信息研究院院长",
+                    role: "researcher",
+                    avatar: "🏅",
+                    tags: ["量子计算", "密码学", "AI理论", "清华姚班"],
+                    viewpoint: "唯一一位获得图灵奖的华人学者。创办清华「姚班」培养了大量顶尖人才。近年积极参与 AI 安全与治理的国际讨论，在 Science 发表政策论坛文章。",
+                    works: [
+                        "图灵奖 (2000年)",
+                        "清华大学交叉信息研究院 (IIIS)",
+                        "AI 安全与治理国际倡议"
+                    ],
+                    socials: [
+                        { label: "清华 IIIS", url: "https://iiis.tsinghua.edu.cn", icon: "🏛️", cls: "website" }
+                    ]
+                },
+                {
+                    name: "何恺明 (Kaiming He)",
+                    title: "MIT助理教授 | ResNet 作者 | Mask R-CNN 作者",
+                    role: "researcher",
+                    avatar: "🔥",
+                    tags: ["ResNet", "残差网络", "目标检测", "MAE"],
+                    viewpoint: "ResNet 和 Mask R-CNN 的作者，这两项工作彻底改变了计算机视觉领域。MAE (Masked Autoencoders) 提出自监督学习新范式。CV 领域引用量最高的年轻研究者之一。",
+                    works: [
+                        "ResNet (Deep Residual Learning)",
+                        "Mask R-CNN",
+                        "MAE (Masked Autoencoders)"
+                    ],
+                    socials: [
+                        { label: "Google Scholar", url: "https://scholar.google.com/citations?user=kQevn_AAAAAJ", icon: "📚", cls: "blog" }
+                    ]
+                },
+                {
+                    name: "周志华",
+                    title: "南京大学人工智能学院院长 | 欧洲科学院院士",
+                    role: "researcher",
+                    avatar: "📗",
+                    tags: ["集成学习", "机器学习", "西瓜书"],
+                    viewpoint: "中国机器学习领域的领军人物，《机器 learning》(俗称「西瓜书」)作者。南京大学 LAMDA 实验室主任，在集成学习和弱监督学习方面有重要贡献。",
+                    works: [
+                        "《Machine Learning》(西瓜书)",
+                        "Forest RC / gcForest 方法",
+                        "南京大学 LAMDA 实验室"
+                    ],
+                    socials: [
+                        { label: "南大 LAMDA", url: "http://lamda.nju.edu.cn", icon: "🏛️", cls: "website" }
+                    ]
+                }
+            ],
+
+            // ==================== 媒体/博主 ====================
+            media: [
+                {
+                    name: "机器之心 (JiQiZhiXin)",
+                    title: "国内顶级AI媒体 | 专业深度报道",
+                    role: "blogger",
+                    avatar: "❤️‍🔥",
+                    tags: ["AI资讯", "技术深度", "产业分析"],
+                    viewpoint: "中文AI媒体三巨头之一，以高质量的技术深度分析和产业报道著称。覆盖 AI 前沿研究、产业动态和创业者访谈。",
+                    works: [
+                        "每日AI资讯推送",
+                        "技术深度解析文章",
+                        "AI 行业报告"
+                    ],
+                    socials: [
+                        { label: "网站", url: "https://www.jiqizhixin.com", icon: "🌐", cls: "website" },
+                        { label: "公众号", url: "", icon: "💬", cls: "blog" },
+                        { label: "知乎", url: "https://zhuanlan.zhihu.com/ji-qi-zhi-xin-65", icon: "📝", cls: "zhihu" }
+                    ]
+                },
+                {
+                    name: "量子位 (QbitAI)",
+                    title: "AI新媒体头部账号 | 科技趋势追踪",
+                    role: "blogger",
+                    avatar: "⚛️",
+                    tags: ["AI新闻", "MEET大会", "技术解读"],
+                    viewpoint: "中文AI媒体头部品牌，以快速准确的 AI 新闻和技术解读著称。每年举办的 MEET 智能未来大会汇聚行业大咖。",
+                    works: [
+                        "MEET 智能未来大会",
+                        "每日AI快讯",
+                        "技术趋势深度报告"
+                    ],
+                    socials: [
+                        { label: "网站", url: "https://www.qbitai.com", icon: "🌐", cls: "website" },
+                        { label: "公众号", url: "", icon: "💬", cls: "blog" },
+                        { label: "知乎", url: "https://www.zhihu.com/org/qbitai", icon: "📝", cls: "zhihu" }
+                    ]
+                },
+                {
+                    name: "新智元 (AI Era)",
+                    title: "AI产业智库型媒体 | 产学研结合",
+                    role: "blogger",
+                    avatar: "✨",
+                    tags: ["AI产业", "学术前沿", "政策解读"],
+                    viewpoint: "定位为「AI时代的智囊」，注重产学研融合视角的报道。覆盖 AI 政策动态、学术突破和产业投资。",
+                    works: [
+                        "AI 产业发展报告",
+                        "学术成果解读",
+                        "政策影响分析"
+                    ],
+                    socials: [
+                        { label: "网站", url: "http://www.ai-era.com", icon: "🌐", cls: "website" },
+                        { label: "公众号", url: "", icon: "💬", cls: "blog" }
+                    ]
+                },
+                {
+                    name: "差评 (Chaping)",
+                    title: "泛科技自媒体 | AI科普向大众",
+                    role: "blogger",
+                    avatar: "😂",
+                    tags: ["科技测评", "AI科普", "幽默风格"],
+                    viewpoint: "以轻松幽默的风格做科技内容，让普通读者也能看懂复杂的 AI 技术。在微信公众号和全网都有广泛受众。",
+                    works: [
+                        "AI 产品测评系列",
+                        "科技热点评论",
+                        "AI 工具推荐合集"
+                    ],
+                    socials: [
+                        { label: "公众号", url: "", icon: "💬", cls: "blog" },
+                        { label: "B站", url: "", icon: "📺", cls: "bilibili" }
+                    ]
+                },
+                {
+                    name: "PaperWeekly",
+                    title: "学术论文分享社区 | 研究者聚集地",
+                    role: "blogger",
+                    avatar: "📄",
+                    tags: ["论文", "学术", "研究者社区"],
+                    viewpoint: "面向 AI 研究者的学术论文分享和讨论平台。帮助研究者快速了解最新论文，降低阅读门槛。",
+                    works: [
+                        "每周论文精选",
+                        "论文解读专栏",
+                        "研究者社区"
+                    ],
+                    socials: [
+                        { label: "网站", url: "https://www.paperweekly.site", icon: "🌐", cls: "website" },
+                        { label: "GitHub", url: "https://github.com/PaperWeekly", icon: "🐙", cls: "github" },
+                        { label: "知乎", url: "https://zhuanlan.zhihu.com/paperweekly", icon: "📝", cls: "zhihu" }
+                    ]
+                },
+                {
+                    name: "Lex Fridman",
+                    title: "MIT研究员 | Lex Fridman Podcast 主播",
+                    role: "blogger",
+                    avatar: "🎙️",
+                    tags: ["播客", "深度访谈", "AI哲学"],
+                    viewpoint: "拥有最受欢迎的 AI/科技播客之一，采访过 Musk、Altman、Hinton 等几乎所有 AI 界重要人物。访谈风格深入且有哲学思考。",
+                    works: [
+                        "Lex Fridman Podcast (YouTube播放量数亿)",
+                        "Elon Musk 深度访谈 (破亿播放)",
+                        "Sam Altman / Demis Hassabis 等访谈"
+                    ],
+                    socials: [
+                        { label: "YouTube", url: "https://youtube.com/lexfridman", icon: "▶️", cls: "youtube" },
+                        { label: "Twitter/X", url: "https://x.com/lexfridman", icon: "𝕏", cls: "twitter" },
+                        { label: "Podcast", url: "https://lexfridman.com/podcast", icon: "🎧", cls: "website" }
+                    ]
+                },
+                {
+                    name: "Two Minute Papers (Károly Zsolnai-Fehér)",
+                    title: "AI论文科普 YouTuber | 学术可视化",
+                    role: "blogger",
+                    avatar: "⏱️",
+                    tags: ["AI科普", "论文可视化", "YouTube"],
+                    viewpoint: "用通俗易懂的动画和语言解释最新的 AI 研究论文，让普通人也能理解前沿学术进展。",
+                    works: [
+                        "Two Minute Papers YouTube频道 (500万+订阅)",
+                        "数百个AI论文解读视频"
+                    ],
+                    socials: [
+                        { label: "YouTube", url: "https://youtube.com/@TwoMinutePapers", icon: "▶️", cls: "youtube" },
+                        { label: "Twitter/X", url: "https://x.com/fermatslibrary", icon: "𝕏", cls: "twitter" }
+                    ]
+                },
+                {
+                    name: "Simon Willison",
+                    title: "Django 联合创作者 | AI工具开发者/博主",
+                    role: "blogger",
+                    avatar: "🦜",
+                    tags: ["LLM工具", "AI工程", "开发者博客"],
+                    viewpoint: "专注于 LLM 工具和实践的开发者博主。他的博客是追踪 AI 开发工具最新动态的最佳来源之一，llm.datasette.io 项目维护者。",
+                    works: [
+                        "LLM 工具追踪项目 (llm.datasette.io)",
+                        "Datasette 数据工具",
+                        "每日AI开发笔记"
+                    ],
+                    socials: [
+                        { label: "Blog", url: "https://simonwillison.net", icon: "📝", cls: "blog" },
+                        { label: "Twitter/X", url: "https://x.com/simonw", icon: "𝕏", cls: "twitter" },
+                        { label: "GitHub", url: "https://github.com/simonw", icon: "🐙", cls: "github" }
+                    ]
+                },
+                {
+                    name: "Jack Clark (Anthropic)",
+                    title: "Anthropic 联合创始人 | Anthropic Claude",
+                    role: "blogger",
+                    avatar: "📋",
+                    tags: ["AI政策", "Import AI Newsletter", "Anthropic"],
+                    viewpoint: "Import AI Newsletter 创始人，长期追踪 AI 行业动态。后联合创立 Anthropic，负责公司政策和沟通工作。",
+                    works: [
+                        "Import AI Newsletter",
+                        "Anthropic AI 安全报告",
+                        "AI Index Report 参与编写"
+                    ],
+                    socials: [
+                        { label: "Twitter/X", url: "https://x.com/jackclarkSF", icon: "𝕏", cls: "twitter" },
+                        { label: "Newsletter", url: "https://importai.com", icon: "📧", cls: "blog" }
+                    ]
+                }
+            ]
+        };
+
+        // ===== RENDER FUNCTIONS =====
+        
+        function createCard(person, index) {
+            const avatarClass = `avatar-${person.role}`;
+            const badgeClass = `badge-${person.role}`;
+            const roleText = {
+                leader: "领袖",
+                researcher: "研究者",
+                entrepreneur: "企业家",
+                blogger: "媒体/博主"
+            }[person.role];
+
+            const tagsHtml = person.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+            
+            const worksHtml = person.works.map(work => 
+                `<div class="work-item">${work}</div>`
+            ).join('');
+
+            const socialsHtml = person.socials.map(social => 
+                `<a href="${social.url}" target="_blank" rel="noopener noreferrer" class="social-link ${social.cls}">
+                    ${social.icon} ${social.label}
+                </a>`
+            ).join('');
+
+            return `
+                <div class="person-card" data-name="${person.name.toLowerCase()}" data-tags="${person.tags.join(' ').toLowerCase()}" style="animation-delay: ${index * 0.08}s">
+                    <div class="card-header">
+                        <div class="avatar ${avatarClass}">${person.avatar}</div>
+                        <div class="card-info">
+                            <div class="card-name">
+                                ${person.name}
+                                <span class="role-badge ${badgeClass}">${roleText}</span>
+                            </div>
+                            <div class="card-title">${person.title}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="tag-list">${tagsHtml}</div>
+                    
+                    <div class="card-body">
+                        <div class="viewpoint-section">
+                            <div class="viewpoint-title">核心观点</div>
+                            <div class="viewpoint-text">${person.viewpoint}</div>
+                        </div>
+                        
+                        <div class="works-section">
+                            <div class="works-title">代表作 / 重要作品</div>
+                            ${worksHtml}
+                        </div>
+                        
+                        <div class="social-links">
+                            ${socialsHtml}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderAllCards() {
+            document.getElementById('international-grid').innerHTML = 
+                peopleData.international.map((p, i) => createCard(p, i)).join('');
+            document.getElementById('china-grid').innerHTML = 
+                peopleData.china.map((p, i) => createCard(p, i)).join('');
+            document.getElementById('researcher-grid').innerHTML = 
+                peopleData.researcher.map((p, i) => createCard(p, i)).join('');
+            document.getElementById('media-grid').innerHTML = 
+                peopleData.media.map((p, i) => createCard(p, i)).join('');
+
+            updateTotalCount();
+        }
+
+        function updateTotalCount() {
+            const total = Object.values(peopleData).flat().length;
+            document.getElementById('total-count').textContent = total + '+';
+        }
+
+        // ===== FILTER & SEARCH =====
+        
+        let currentFilter = 'all';
+
+        function applyFilter(filter) {
+            currentFilter = filter;
+            
+            // Update button states
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.filter === filter);
+            });
+
+            // Show/hide sections
+            document.querySelectorAll('.category-section').forEach(section => {
+                if (filter === 'all') {
+                    section.style.display = '';
+                } else {
+                    section.style.display = section.dataset.category === filter ? '' : 'none';
+                }
+            });
+        }
+
+        function searchCards(query) {
+            query = query.toLowerCase().trim();
+            const noResults = document.getElementById('noResults');
+            let visibleCount = 0;
+
+            document.querySelectorAll('.person-card').forEach(card => {
+                const name = card.dataset.name || '';
+                const tags = card.dataset.tags || '';
+                const cardText = card.textContent.toLowerCase();
+                
+                const matches = !query || name.includes(query) || tags.includes(query) || 
+                    cardText.includes(query);
+                
+                card.style.display = matches ? '' : 'none';
+                if (matches) visibleCount++;
+            });
+
+            // Show/hide sections based on visible cards
+            document.querySelectorAll('.category-section').forEach(section => {
+                const hasVisible = section.querySelector('.person-card:not([style*="display: none"])');
+                
+                // Also check current filter
+                const categoryMatch = currentFilter === 'all' || section.dataset.category === currentFilter;
+                
+                section.style.display = (hasVisible && categoryMatch) ? '' : 'none';
+            });
+
+            noResults.classList.toggle('hidden', visibleCount > 0);
+        }
+
+        // ===== EVENT LISTENERS =====
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderAllCards();
+
+            // Filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    applyFilter(btn.dataset.filter);
+                    searchCards(document.getElementById('searchInput').value);
+                });
+            });
+
+            // Search input with debounce
+            let debounceTimer;
+            document.getElementById('searchInput').addEventListener('input', (e) => {
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => {
+                    searchCards(e.target.value);
+                }, 300);
+            });
+        });
+    </script>
+</body>
+</html>
